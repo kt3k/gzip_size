@@ -1,4 +1,4 @@
-# gzip_size v0.2.1
+# gzip_size v0.2.2
 
 [![ci](https://github.com/kt3k/gzip_size/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/gzip_size/actions/workflows/ci.yml)
 
@@ -9,7 +9,7 @@
 You can install the command with the following command
 
 ```sh
-deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.1/cli.ts
+deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.2/cli.ts
 ```
 
 ```shellsession
@@ -26,7 +26,7 @@ $ gzip_size --include-original --raw myscript.js
 # API usage
 
 ```ts
-import { gzipSize } from "https://deno.land/x/gzip_size@v0.2.1/mod.ts";
+import { gzipSize } from "https://deno.land/x/gzip_size@v0.2.2/mod.ts";
 
 gzipSize(bytes);
 // returns gzipped size of the bytes
