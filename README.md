@@ -1,5 +1,7 @@
 # gzip_size v0.2.1
 
+[![ci](https://github.com/kt3k/gzip_size/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/gzip_size/actions/workflows/ci.yml)
+
 > Shows the gzipped size of the given file
 
 # CLI usage
