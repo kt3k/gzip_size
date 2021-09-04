@@ -1,4 +1,4 @@
-# gzip_size v0.2.0
+# gzip_size v0.2.1
 
 > Shows the gzipped size of the given file
 
@@ -7,7 +7,7 @@
 You can install the command with the following command
 
 ```sh
-deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.0/cli.ts
+deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.1/cli.ts
 ```
 
 ```shellsession
@@ -24,7 +24,7 @@ $ gzip_size --include-original --raw myscript.js
 # API usage
 
 ```ts
-import { gzipSize } from "https://deno.land/x/gzip_size@v0.2.0/mod.ts";
+import { gzipSize } from "https://deno.land/x/gzip_size@v0.2.1/mod.ts";
 
 gzipSize(bytes);
 // returns gzipped size of the bytes
