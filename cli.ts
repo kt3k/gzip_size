@@ -55,8 +55,6 @@ try {
     console.log(e);
     Deno.exit(1);
   }
-  console.log(e);
-  console.log(Object.keys(e));
   console.log(`Error: Cannot read file "${args[0]}"`)
   console.log("Usage: gzip_size [options] <filename>")
   Deno.exit(1);
