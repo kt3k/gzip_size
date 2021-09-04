@@ -7,7 +7,7 @@
 You can install the command with the following command
 
 ```sh
-deno install -qf --allow-read https://deno.land/x/gzip_size@v0.1.0/cli.ts
+deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.0/cli.ts
 ```
 
 ```shellsession
@@ -24,7 +24,7 @@ $ gzip_size --include-original --raw myscript.js
 # API usage
 
 ```ts
-import { gzipSize } from "https://deno.land/x/gzip_size@v0.1.0/mod.ts";
+import { gzipSize } from "https://deno.land/x/gzip_size@v0.2.0/mod.ts";
 
 gzipSize(bytes);
 // returns gzipped size of the bytes
