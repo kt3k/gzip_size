@@ -1,4 +1,4 @@
-# gzip_size v0.1.0
+# gzip_size v0.1.1
 
 > Shows the gzipped size of the given file
 
