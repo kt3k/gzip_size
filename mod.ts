@@ -12,7 +12,10 @@ const encoder = new TextEncoder();
 /**
  * Returns the gzipped size of the given bytes.
  */
-export function gzipSize(bytes: Uint8Array | string, options: GzipSizeOptions = {}): number {
+export function gzipSize(
+  bytes: Uint8Array | string,
+  options: GzipSizeOptions = {},
+): number {
   const b = typeof bytes === "string" ? encoder.encode(bytes) : bytes;
   return gzip(b, options).byteLength;
 }

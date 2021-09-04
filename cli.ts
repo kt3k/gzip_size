@@ -8,7 +8,7 @@ type Args = {
   "include-original": boolean;
   raw: boolean;
   _: string[];
-}
+};
 const {
   help,
   level,
@@ -43,11 +43,11 @@ Examples
 
 if (args.length === 0) {
   console.log("Error: No file is given");
-  console.log("Usage: gzip_size [options] <filename>")
+  console.log("Usage: gzip_size [options] <filename>");
   Deno.exit(1);
 }
 
-let bytes: Uint8Array
+let bytes: Uint8Array;
 try {
   bytes = await Deno.readFile(args[0]);
 } catch (e) {
@@ -55,8 +55,8 @@ try {
     console.log(e);
     Deno.exit(1);
   }
-  console.log(`Error: Cannot read file "${args[0]}"`)
-  console.log("Usage: gzip_size [options] <filename>")
+  console.log(`Error: Cannot read file "${args[0]}"`);
+  console.log("Usage: gzip_size [options] <filename>");
   Deno.exit(1);
 }
 
@@ -64,9 +64,9 @@ const originalLength = bytes.byteLength;
 const gzippedSize = gzipSize(bytes, { level: +level || 9 });
 
 if (includeOriginal && raw) {
-  console.log(originalLength + ' → ' + gzippedSize);
+  console.log(originalLength + " → " + gzippedSize);
 } else if (includeOriginal) {
-  console.log(prettyBytes(originalLength), '→', prettyBytes(gzippedSize));
+  console.log(prettyBytes(originalLength), "→", prettyBytes(gzippedSize));
 } else if (raw) {
   console.log(String(gzippedSize));
 } else {
