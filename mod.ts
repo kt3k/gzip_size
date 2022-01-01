@@ -1,4 +1,4 @@
-import { gzip } from "https://deno.land/x/compress@v0.4.0/gzip/gzip.ts";
+import { gzip } from "https://deno.land/x/compress@v0.4.1/gzip/gzip.ts";
 
 /**
  * The options for gzipSize function

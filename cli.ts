@@ -1,6 +1,6 @@
-import { parse } from "https://deno.land/std@0.106.0/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
 import { gzipSize } from "./mod.ts";
-import { prettyBytes } from "https://deno.land/x/pretty_bytes@v1.0.4/mod.ts";
+import { prettyBytes } from "https://deno.land/x/pretty_bytes@v1.0.5/mod.ts";
 
 type Args = {
   help: boolean;
