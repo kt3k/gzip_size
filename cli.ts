@@ -1,4 +1,4 @@
-import { parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.121.0/flags/mod.ts";
 import { gzipSize } from "./mod.ts";
 import { prettyBytes } from "https://deno.land/std@0.121.0/fmt/bytes.ts";
 
