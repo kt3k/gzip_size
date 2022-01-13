@@ -77,7 +77,11 @@ const binary = !decimal;
 if (includeOriginal && raw) {
   console.log(originalLength + " → " + gzippedSize);
 } else if (includeOriginal) {
-  console.log(prettyBytes(originalLength, { binary }), "→", prettyBytes(gzippedSize, { binary }));
+  console.log(
+    prettyBytes(originalLength, { binary }),
+    "→",
+    prettyBytes(gzippedSize, { binary }),
+  );
 } else if (raw) {
   console.log(String(gzippedSize));
 } else {
