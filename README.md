@@ -13,15 +13,17 @@ deno install -qf --allow-read https://deno.land/x/gzip_size@v0.2.3/cli.ts
 ```
 
 ```shellsession
-$ gzip_size myscript.js
-1.67 kB
-$ gzip_size --include-original myscript.js
-4.04 kB → 1.67 kB
-$ gzip_size --raw myscript.js
-1671
-$ gzip_size --include-original --raw myscript.js
-4041 → 1671
+$ gzip_size tiger.svg
+347 kiB
+$ gzip_size tiger.svg --raw
+355041
+$ gzip_size tiger.svg --include-original
+357 kiB → 347 kiB
+$ gzip_size tiger.svg --include-original --decimal
+365 kB → 355 kB
 ```
+
+See `gzip_size -h` for more details.
 
 # API usage
 

@@ -1,8 +1,9 @@
 import { parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
 import { gzipSize } from "./mod.ts";
-import { prettyBytes } from "https://deno.land/x/pretty_bytes@v1.0.5/mod.ts";
+import { prettyBytes } from "https://deno.land/std@0.121.0/fmt/bytes.ts";
 
 type Args = {
+  decimal: boolean;
   help: boolean;
   level: string;
   "include-original": boolean;
@@ -10,6 +11,7 @@ type Args = {
   _: string[];
 };
 const {
+  decimal,
   help,
   level,
   "include-original": includeOriginal,
@@ -17,9 +19,10 @@ const {
   _: args,
 } = parse(Deno.args, {
   string: ["level"],
-  boolean: ["help", "raw", "include-original"],
+  boolean: ["decimal", "help", "raw", "include-original"],
   alias: {
     h: "help",
+    d: "decimal",
   },
 }) as Args;
 
@@ -30,14 +33,20 @@ Options:
   --level             Compression level [0-9] (Default: 9)
   --raw               Display value in bytes
   --include-original  Include original size
+  -d, --decimal       Uses decimal byte units (e.g. kilobyte, megabyte).
+                      Default is false.
+
+Note: The sizes are shown in binary byte units by default (e.g. kibibyte, mebibyte)
 
 Examples
   $ gzip-size unicorn.png
-  192 kB
+  347 kiB
   $ gzip-size unicorn.png --raw
-  192256
+  355041
   $ gzip-size unicorn.png --include-original
-  392 kB → 192 kB`);
+  357 kiB → 347 kiB
+  $ gzip-size unicorn.png --include-original -d
+  365 kB → 355 kB`);
   Deno.exit(0);
 }
 
@@ -63,12 +72,14 @@ try {
 const originalLength = bytes.byteLength;
 const gzippedSize = gzipSize(bytes, { level: +level || 9 });
 
+const binary = !decimal;
+
 if (includeOriginal && raw) {
   console.log(originalLength + " → " + gzippedSize);
 } else if (includeOriginal) {
-  console.log(prettyBytes(originalLength), "→", prettyBytes(gzippedSize));
+  console.log(prettyBytes(originalLength, { binary }), "→", prettyBytes(gzippedSize, { binary }));
 } else if (raw) {
   console.log(String(gzippedSize));
 } else {
-  console.log(prettyBytes(gzippedSize));
+  console.log(prettyBytes(gzippedSize, { binary }));
 }
